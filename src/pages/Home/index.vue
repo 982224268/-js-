@@ -1,8 +1,8 @@
 <template>
     <div class="home">
-        <el-carousel indicator-position="outside">
-            <el-carousel-item v-for="item in 4" :key="item">
-                <h3>{{ item }}</h3>
+        <el-carousel indicator-position="outside" height="700px">
+            <el-carousel-item v-for="(item, index) in lists" :key="index">
+                <img :src="item.url">
             </el-carousel-item>
         </el-carousel>
     </div>
@@ -16,13 +16,31 @@ export default {
     components: {
         Header,
         Footer,
+    },
+    data() {
+        return {
+            lists: [
+                {
+                    url: require('./images/1.jpg')
+                },
+                {
+                    url: require('./images/2.jpg')
+                },
+                {
+                    url: require('./images/3.jpg')
+                },
+                {
+                    url: require('./images/4.jpg')
+                },
+            ]
+        }
     }
 }
 </script>
 
 <style scoped>
-.home {
-    height: 600px;
-    background-color: rgb(232, 232, 232);
+img {
+    height: 100%;
+    width: 100%;
 }
 </style>
